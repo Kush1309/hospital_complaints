@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hospital Complaint Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- <div class="top-bar">
+  <button class="admin-btn" onclick="goToAdmin()">Admin Panel</button>
+</div> -->
+<div class="container">
+  <h1>🏥 Hospital Complaint Portal</h1>
+  <p class="subtitle">Submit your issue and we’ll take care of it</p>
+
+  <div class="card">
+  <input type="text" id="name" placeholder="Patient Name">
+  <textarea id="issue" placeholder="Describe your problem"></textarea>
+
+  <button onclick="submitComplaint()">Submit Complaint</button>
+  <p id="msg"></p>
+
+  <button class="admin-btn-secondary" onclick="goToAdmin()">
+    Go to Admin Panel
+  </button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
