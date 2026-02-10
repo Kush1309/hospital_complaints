@@ -93,11 +93,125 @@ select {
 
 
 
+.stats-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.stat-item h4 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+
+.stat-item p {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.stat-item.resolved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.stat-item.rejected {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.stat-item.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
 .admin-btn-secondary {
   margin-top: 15px;
   width: 100%;
   padding: 10px;
   background: #2e7d32;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 30px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.stat-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.stat-card p {
+  margin: 0;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.stat-card.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.stat-card.resolved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.stat-card.rejected {
+  background: #f8d7da;
+  color: #721c24;
   color: white;
   border: none;
   border-radius: 6px;

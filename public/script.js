@@ -1,3 +1,21 @@
+function loadUserStats() {
+  fetch("/complaints")
+    .then(res => res.json())
+    .then(data => {
+      let pending = 0, resolved = 0, rejected = 0;
+
+      data.forEach(c => {
+        if (c.status === "pending") pending++;
+        if (c.status === "resolved") resolved++;
+        if (c.status === "rejected") rejected++;
+      });
+
+      document.getElementById("userPendingCount").innerText = pending;
+      document.getElementById("userResolvedCount").innerText = resolved;
+      document.getElementById("userRejectedCount").innerText = rejected;
+    });
+}
+
 function submitComplaint() {
   const name = document.getElementById("name").value;
   const issue = document.getElementById("issue").value;
@@ -11,6 +29,7 @@ function submitComplaint() {
   .then(data => {
     document.getElementById("msg").innerText =
       "Complaint submitted successfully. ID: " + data.id;
+    loadUserStats();
   });
 }
 
@@ -82,4 +101,30 @@ function drawChart(data) {
       }]
     }
   });
+
+  // Store stats for later use
+  window.stats = { pending, resolved, rejected };
+}
+
+function showReportStats() {
+  fetch("/complaints")
+    .then(res => res.json())
+    .then(data => {
+      let pending = 0, resolved = 0, rejected = 0;
+
+      data.forEach(c => {
+        if (c.status === "pending") pending++;
+        if (c.status === "resolved") resolved++;
+        if (c.status === "rejected") rejected++;
+      });
+
+      document.getElementById("pendingCount").innerText = pending;
+      document.getElementById("resolvedCount").innerText = resolved;
+      document.getElementById("rejectedCount").innerText = rejected;
+      document.getElementById("statsModal").style.display = "block";
+    });
+}
+
+function closeStatsModal() {
+  document.getElementById("statsModal").style.display = "none";
 }

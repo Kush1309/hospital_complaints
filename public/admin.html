@@ -9,6 +9,32 @@
 
   <h1>🩺 Admin Complaint Dashboard</h1>
 
+  <div style="text-align: center; margin-bottom: 20px;">
+    <button onclick="showReportStats()" style="width: 250px; background: #2e7d32;">📊 View Report Statistics</button>
+  </div>
+
+  <!-- Stats Modal -->
+  <div id="statsModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeStatsModal()">&times;</span>
+      <h2>📈 Report Statistics</h2>
+      <div class="stats-container">
+        <div class="stat-card pending">
+          <h3>Pending</h3>
+          <p id="pendingCount">0</p>
+        </div>
+        <div class="stat-card resolved">
+          <h3>Resolved</h3>
+          <p id="resolvedCount">0</p>
+        </div>
+        <div class="stat-card rejected">
+          <h3>Rejected</h3>
+          <p id="rejectedCount">0</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <canvas id="statusChart" height="120"></canvas>
 
   <div id="complaints" class="grid"></div>

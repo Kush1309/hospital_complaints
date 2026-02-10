@@ -12,7 +12,21 @@
 <div class="container">
   <h1>🏥 Hospital Complaint Portal</h1>
   <p class="subtitle">Submit your issue and we’ll take care of it</p>
-
+  <!-- Stats Display -->
+  <div class="stats-info">
+    <div class="stat-item resolved">
+      <h4>✅ Resolved</h4>
+      <p id="userResolvedCount">0</p>
+    </div>
+    <div class="stat-item rejected">
+      <h4>❌ Rejected</h4>
+      <p id="userRejectedCount">0</p>
+    </div>
+    <div class="stat-item pending">
+      <h4>⏳ Pending</h4>
+      <p id="userPendingCount">0</p>
+    </div>
+  </div>
   <div class="card">
   <input type="text" id="name" placeholder="Patient Name">
   <textarea id="issue" placeholder="Describe your problem"></textarea>
@@ -26,5 +40,8 @@
 </div>
 
 <script src="script.js"></script>
+<script>
+  loadUserStats();
+</script>
 </body>
 </html>
