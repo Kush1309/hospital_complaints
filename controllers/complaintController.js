@@ -1,12 +1,12 @@
 let complaints = [];
 let idCounter = 1;
 
-// GET all complaints
+// GET all registered complaints
 const getAllComplaints = (req, res) => {
-  res.json(complaints);
+  res.json(complaints);   
 };
 
-// GET complaint by ID
+// GET complaint by ID to check specific complaint
 const getComplaintById = (req, res) => {
   const id = parseInt(req.params.id);
   const complaint = complaints.find(c => c.id === id);
@@ -14,13 +14,14 @@ const getComplaintById = (req, res) => {
   res.json(complaint);
 };
 
-// POST new complaint
+// POST new complaint from request body
 const createComplaint = (req, res) => {
-  const { name, issue } = req.body;
+  const { name, email, issue } = req.body;
 
   const newComplaint = {
     id: idCounter++,
     name,
+    email: email || "",
     issue,
     status: "pending"
   };
@@ -48,6 +49,7 @@ const deleteComplaint = (req, res) => {
   res.json({ message: "Deleted successfully" });
 };
 
+//mvc architecture
 module.exports = {
   getAllComplaints,
   getComplaintById,

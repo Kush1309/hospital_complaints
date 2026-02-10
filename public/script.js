@@ -18,12 +18,13 @@ function loadUserStats() {
 
 function submitComplaint() {
   const name = document.getElementById("name").value;
+  const email = document.getElementById("email")?.value || "";
   const issue = document.getElementById("issue").value;
 
   fetch("/complaints", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, issue })
+    body: JSON.stringify({ name, email, issue })
   })
   .then(res => res.json())
   .then(data => {
@@ -44,6 +45,7 @@ function loadComplaints() {
         box.innerHTML += `
           <div class="complaint">
             <h3>${c.name}</h3>
+              <p class="email">${c.email ? c.email : ''}</p>
             <p>${c.issue}</p>
             <span class="status ${c.status}">${c.status}</span>
 

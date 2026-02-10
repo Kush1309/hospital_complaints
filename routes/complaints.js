@@ -7,6 +7,7 @@ const {
   deleteComplaint
 } = require("../controllers/complaintController");
 
+
 const router = express.Router();
 
 router.get("/", getAllComplaints);
